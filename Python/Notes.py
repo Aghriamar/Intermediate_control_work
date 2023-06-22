@@ -50,6 +50,16 @@ def display_lists(notes):
         print("Created:", note["created"])
         print("------------------------")
 
+# Function to display list of notes before main menu
+def display_note_list():
+    notes = load_notes()
+    if len(notes) == 0:
+        print("No notes found.")
+    else:
+        print("List of notes:")
+        print("------------------------")
+        display_lists(notes)
+
 # Main function to run the application
 def main():
     display_note_list()
