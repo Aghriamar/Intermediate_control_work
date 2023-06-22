@@ -99,6 +99,30 @@ def read_notes():
             print("=============================")
             display_notes(filtered_notes)
 
+# Function to display a selected note by ID
+def display_selected_note():
+    notes = load_notes()
+    if len(notes) == 0:
+        print("No notes found.")
+        return
+    try:
+        note_id = int(input("Enter note ID: "))
+        note = [n for n in notes if n["id"] == note_id]
+        if len(note) == 0:
+            print("Note not found")
+            return
+        note = note[0]
+        print("=============================")
+        print("ID:", note["id"])
+        print("Title:", note["title"])
+        print("Body:", note["body"])
+        print("Created:", note["created"])
+        print("Last Updated:", note["last_updated"])
+        print("------------------------")
+    except ValueError:
+        print("Invalid ID format")
+        return
+
 # Main function to run the application
 def main():
     display_note_list()
