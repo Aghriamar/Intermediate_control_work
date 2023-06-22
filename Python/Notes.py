@@ -60,6 +60,28 @@ def display_note_list():
         print("------------------------")
         display_lists(notes)
 
+# Function to add a note
+def add_note():
+    title = input("Enter note title: ")
+    body = input("Enter note body: ")
+    created = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    last_updated = created
+    notes = load_notes()
+    if len(notes) > 0:
+        last_id = notes[-1]["id"]
+    else:
+        last_id = 0
+    new_note = {
+        "id": last_id + 1,
+        "title": title,
+        "body": body,
+        "created": created,
+        "last_updated": last_updated
+    }
+    notes.append(new_note)
+    save_notes(notes)
+    print("Note successfully added!")
+
 # Main function to run the application
 def main():
     display_note_list()
