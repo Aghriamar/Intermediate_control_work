@@ -146,6 +146,21 @@ def edit_note():
     except ValueError:
         print("Invalid ID format")
         return
+    
+# Function to delete a note
+def delete_note():
+    notes = load_notes()
+    if len(notes) == 0:
+        print("No notes found.")
+        return
+    try:
+        note_id = int(input("Enter note ID: "))
+        notes = [n for n in notes if n["id"] != note_id]
+        save_notes(notes)
+        print("Note successfully deleted")
+    except ValueError:
+        print("Invalid ID format")
+        return
 
 # Main function to run the application
 def main():
