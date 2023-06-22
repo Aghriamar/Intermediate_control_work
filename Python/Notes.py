@@ -1,6 +1,17 @@
 import json
 import datetime
 
+# Constants for command line interface
+ADD_NOTE = "add"
+READ_LIST = "read"
+EDIT_NOTE = "edit"
+DELETE_NOTE = "delete"
+DISPLAY_NOTE = "display"
+EXIT_APP = "exit"
+
+# File name for storing notes
+NOTES_FILE = "notes.json"
+
 # Main function to run the application
 def main():
     display_note_list()
