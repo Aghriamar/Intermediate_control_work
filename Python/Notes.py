@@ -82,6 +82,23 @@ def add_note():
     save_notes(notes)
     print("Note successfully added!")
 
+# Function to read notes, with optional date filtering
+def read_notes():
+    notes = load_notes()
+    if len(notes) == 0:
+        print("No notes found.")
+        return
+    date_filter = input("Enter date filter (DD-MM-YYYY) (optional): ")
+    if date_filter == "":
+        display_notes(notes)
+    else:
+        filtered_notes = [note for note in notes if note["created"].startswith(date_filter)]
+        if len(filtered_notes) == 0:
+            print("No notes found for specified date.")
+        else:
+            print("=============================")
+            display_notes(filtered_notes)
+
 # Main function to run the application
 def main():
     display_note_list()
