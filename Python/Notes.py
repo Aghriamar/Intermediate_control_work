@@ -122,6 +122,30 @@ def display_selected_note():
     except ValueError:
         print("Invalid ID format")
         return
+    
+# Function to edit a note
+def edit_note():
+    notes = load_notes()
+    if len(notes) == 0:
+        print("No notes found.")
+        return
+    try:
+        note_id = int(input("Enter note ID: "))
+        note = [n for n in notes if n["id"] == note_id]
+        if len(note) == 0:
+            print("Note not found")
+            return
+        note = note[0]
+        new_title = input("Enter new title: ")
+        new_body = input("Enter new body: ")
+        note["title"] = new_title
+        note["body"] = new_body
+        note["last_updated"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        save_notes(notes)
+        print("Note successfully updated")
+    except ValueError:
+        print("Invalid ID format")
+        return
 
 # Main function to run the application
 def main():
