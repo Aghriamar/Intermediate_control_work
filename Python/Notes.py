@@ -32,6 +32,16 @@ def save_notes(notes):
     except Exception as e:
         print(f"Error saving notes: {e}")
 
+# Function to display all notes
+def display_notes(notes):
+    for note in notes:
+        print("ID:", note["id"])
+        print("Title:", note["title"])
+        print("Body:", note["body"])
+        print("Created:", note["created"])
+        print("Last Updated:", note["last_updated"])
+        print("------------------------")
+
 # Main function to run the application
 def main():
     display_note_list()
