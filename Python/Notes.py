@@ -12,6 +12,26 @@ EXIT_APP = "exit"
 # File name for storing notes
 NOTES_FILE = "notes.json"
 
+# Function to load notes from file
+def load_notes():
+    try:
+        with open(NOTES_FILE, "r") as f:
+            notes = json.load(f)
+    except FileNotFoundError:
+        notes = []
+    except Exception as e:
+        print(f"Error loading notes: {e}")
+        notes = []
+    return notes
+
+# Function to save notes to file
+def save_notes(notes):
+    try:
+        with open(NOTES_FILE, "w") as f:
+            json.dump(notes, f)
+    except Exception as e:
+        print(f"Error saving notes: {e}")
+
 # Main function to run the application
 def main():
     display_note_list()
