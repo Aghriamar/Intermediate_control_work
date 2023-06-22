@@ -42,6 +42,14 @@ def display_notes(notes):
         print("Last Updated:", note["last_updated"])
         print("------------------------")
 
+# Function to display list of notes
+def display_lists(notes):
+    for note in notes:
+        print("ID:", note["id"])
+        print("Title:", note["title"])
+        print("Created:", note["created"])
+        print("------------------------")
+
 # Main function to run the application
 def main():
     display_note_list()
