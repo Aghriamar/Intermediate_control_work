@@ -1,7 +1,14 @@
 import toyshop.*;
 import java.util.Random;
 
+/**
+ * Главный класс программы, используемый для запуска розыгрыша игрушек в магазине.
+ */
 public class Main {
+    /**
+     * Точка входа в программу.
+     * @param args аргументы командной строки (не используются в данной программе)
+     */
     public static void main(String[] args) {
         Random random = new Random();
         ToyShop toyShop = new ToyShop();
